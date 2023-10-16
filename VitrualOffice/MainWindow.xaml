@@ -1,0 +1,87 @@
+﻿<Window x:Class="VitrualOffice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VitrualOffice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Elements-->
+
+
+
+        <Image Source="images\OfficeHeaderDisplay.webp" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6" Stretch="Fill" Grid.RowSpan="3"/>
+
+        <Label Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Firstname:" FontSize="16"/>
+        <Label Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Lastname:" FontSize="16"/>
+        <Label Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Age:" FontSize="16" Margin="38 0 0 0"/>
+        <Label Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Birthday:" FontSize="16" Margin="8 0 0 0"/>
+        <Label Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Salary:" FontSize="16" Margin="25 0 0 0"/>
+        <Label Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Biography:" FontSize="16" Margin="0 0 40 3"/>
+        <Label Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Content="Department:" FontSize="16" Margin="0 0 25 5"/>
+        <Label Grid.Row="8" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Content="Employees" FontSize="16"/>
+        <Label Grid.Row="6" Grid.Column="1" VerticalAlignment="Top" HorizontalContentAlignment="Center" Content="(YYYY - MM - DD)" Grid.ColumnSpan="2" Margin="0 0 20 0"/>
+
+
+
+        <TextBox x:Name = "txtFirstName" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="20"/>
+        <TextBox x:Name = "txtLastName" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="20"/>
+        <TextBox x:Name = "txtAge" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="20"/>
+        <TextBox x:Name = "txtBirthday" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="20"/>
+        <TextBox x:Name = "txtSalary" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="20"/>
+        <TextBox x:Name = "txtBio" Grid.Row="3" Grid.RowSpan="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="98" Margin="130 50 0 50" BorderBrush="Black" BorderThickness="2" TextWrapping="Wrap"/>
+
+
+
+        <ComboBox Name = "cbDepartments" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="255" Margin="130 0 0 0"/>
+
+
+
+        <Button x:Name = "btnAdd" Grid.Column="4" Grid.Row="5" Width="140" Content="Add" FontSize="16" Margin="15" BorderBrush="Black" FontWeight="Bold" Click="btnAdd_Click"/>
+        <Button x:Name = "btnRemove" IsEnabled="False" Grid.Column="4" Grid.Row="12" Width="140" Content="Remove" FontSize="16" Margin="15" BorderBrush="Black" FontWeight="Bold" Click="btnRemove_Click"/>
+        <Button x:Name = "btnShowDetails" IsEnabled="False" Grid.Column="4" Grid.Row="10" Width="140" Content="Show Details" FontSize="16" Margin="15" BorderBrush="Black" FontWeight="Bold" Click="btnShowDetails_Click"/>
+
+
+
+        <ListView VerticalContentAlignment="Center" HorizontalContentAlignment="Center" x:Name = "lstEmployees" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="5" BorderBrush="Black">
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Name}" Width="310"/>
+
+                    <GridViewColumn Header="Department" DisplayMemberBinding="{Binding Department}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
